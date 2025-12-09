@@ -26,7 +26,7 @@ jobs:
         run: docker-compose build 
 
       - name: Start services
-        run: docker-compose build
+        run: docker-compose up
 
       - name: Show running containers
         run: docker ps
