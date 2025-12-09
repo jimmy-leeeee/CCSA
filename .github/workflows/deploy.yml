@@ -10,13 +10,13 @@ jobs:
 
     env:
       # 告訴 docker CLI：用這個資料夾當 config 來源
-      DOCKER_CONFIG: /tmp/docker-config
+      DOCKER_CONFIG: /Users/jimmy_only/.docker-gh-actions
 
     steps:
       - name: Prepare docker config without keychain
         run: |
-          mkdir -p "$DOCKER_CONFIG"
-          cat > "$DOCKER_CONFIG/config.json" << 'EOF'
+          mkdir -p /Users/jimmy_only/.docker-gh-actions
+          cat > /Users/jimmy_only/.docker-gh-actions/config.json << 'EOF'
           {
             "auths": {}
           }
