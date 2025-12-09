@@ -26,13 +26,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Stop running containers
-        run: docker compose down || true
+        run: docker-compose down || true
 
       - name: Rebuild images
-        run: docker compose build 
+        run: docker-compose build 
 
       - name: Start services
-        run: docker compose up -d
+        run: docker-compose build
 
       - name: Show running containers
         run: docker ps
