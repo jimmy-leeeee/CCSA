@@ -1,0 +1,25 @@
+name: Deploy using Docker Compose
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Stop running containers
+        run: docker compose down || true
+
+      - name: Rebuild images
+        run: docker compose build --no-cache
+
+      - name: Start services
+        run: docker compose up -d
+
+      - name: Show running containers
+        run: docker ps
