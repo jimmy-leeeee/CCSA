@@ -8,7 +8,20 @@ jobs:
   deploy:
     runs-on: self-hosted
 
+    env:
+      # 告訴 docker CLI：用這個資料夾當 config 來源
+      DOCKER_CONFIG: /tmp/docker-config
+
     steps:
+      - name: Prepare docker config without keychain
+        run: |
+          mkdir -p "$DOCKER_CONFIG"
+          cat > "$DOCKER_CONFIG/config.json" << 'EOF'
+          {
+            "auths": {}
+          }
+          EOF
+
       - name: Checkout code
         uses: actions/checkout@v3
 
