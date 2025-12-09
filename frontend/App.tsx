@@ -141,7 +141,7 @@ const App: React.FC = () => {
   };
 
 
-//bg-emerald-950 綠色 or bg-slate-950 藍色
+//bg-emerald-950 綠色 or  bg-slate-950 藍色 
 
   return (
     <div className="min-h-screen bg-emerald-950 text-slate-200 p-4 md:p-6 font-sans selection:bg-cyan-500/30">
