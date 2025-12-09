@@ -7,13 +7,15 @@ on:
 jobs:
   deploy:
     runs-on: self-hosted
-
+    env:
+      DOCKER_CONFIG: /Users/jimmy_only/.docker-gh-actions
     steps:
       - name: Unlock login keychain for Docker
-        run: |
-          security -v unlock-keychain -p "$MACOS_LOGIN_PASSWORD" ~/Library/Keychains/login.keychain-db
         env:
           MACOS_LOGIN_PASSWORD: ${{ secrets.MACOS_LOGIN_PASSWORD }}
+        run: |
+          security -v unlock-keychain -p "$MACOS_LOGIN_PASSWORD" ~/Library/Keychains/login.keychain-db
+        
       - name: Checkout code
         uses: actions/checkout@v3
 
